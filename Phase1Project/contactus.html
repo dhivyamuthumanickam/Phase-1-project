@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+ /*Validation for firstname*/           
+            function validateFirstname(){
+            var fname=document.getElementById("fname").value;
+            var errorfname=document.getElementById("errorfname")
+            if(fname.trim() == ""){
+            errorfname.innerHTML = "First name is required";
+            input.style.borderColor='red';
+            }
+            else{
+            errorfname.innerHTML = "";
+            }
+        }
+ /*validation for lastname*/           
+            function validateLastname(){
+            var fname=document.getElementById("lname").value;
+            var errorfname=document.getElementById("errorlname")
+            if(fname.trim() == ""){
+            errorlname.innerHTML = "Last name is required";
+            input.style.borderColor='red';
+            }
+            else{
+            errorlname.innerHTML = "";
+            }
+            }
+/*validation for email*/
+function validateEmail(input) {
+              var email = input.value;
+              var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              var isValid = pattern.test(email);
+              var errorElement = document.getElementById("emailError");
+              
+              if (isValid) {
+                input.style.borderColor = 'green';
+                errorElement.textContent = '';
+              } 
+              else if(email.trim() == ""){
+                input.style.borderColor = 'red';
+                errorElement.textContent = 'Email id is required';
+              }
+              else {
+                input.style.borderColor = 'red';
+                errorElement.textContent = 'Invalid email address';
+              }
+            }
+/*validation for phone*/
+function validatePhone(input) {
+              var phone = input.value;
+              var pattern = /^\d{10}$/;
+              var isValid = pattern.test(phone);
+              var errorElement = document.getElementById("phoneError");
+              
+              if (isValid) {
+                input.style.borderColor = 'green';
+                errorElement.textContent = '';
+              } 
+              else if(phone.trim() == "") {
+                input.style.borderColor = 'red';
+                errorElement.textContent = 'Phone number is required';
+              }
+              else if(phone.length>10){
+                input.style.borderColor='red';
+                errorElement.textContent = 'Phone number should contain 10 digits';
+              }
+            else{
+                input.style.borderColor = 'red';
+                errorElement.textContent = 'Invalid Phone number';
+              }  
+            }
+            
+/*validation for query*/  
+function validateQuery(){
+            var query=document.getElementById("query").value;
+            var errorquery=document.getElementById("errorquery")
+            if(query.trim() == ""){
+            errorquery.innerHTML = "Enter your query";
+            input.style.borderColor='red';
+            }
+            else{
+            errorquery.innerHTML = "";
+            }
+        }          
+            </script>
+    <style>
+
+     .footer-style
+     {
+    position: fixed;
+    left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: rgb(187, 186, 107,0.5);
+   color: white;
+   text-align: center;
+     }
+     .link {
+  overflow: hidden;
+  background-color: rgb(187, 186, 107,0.5);
+  height: 80px;
+}
+
+.link a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 10px 16px;
+  padding-left: 20px;
+  text-decoration: none;
+  font-size: 17px;
+
+}
+
+.link a:hover {
+  background-color: #ddd;
+  color: rgb(33, 73, 184);
+}
+
+.link a:active {
+  background-color: #2fc5e3;
+  color: white;
+}
+#lo{
+    width: 70px;
+    padding: 2px;
+    margin-right:920px;
+} 
+     .container {
+      width: 500px; 
+      border-color: 10px rgb(33, 73, 184);
+      background-color: rgb(187, 186, 107,0);
+    }
+     .error-message {
+      color: red;
+    } 
+       </style>
+    </head>
+    <body>
+        <body style="background-image:url('images\ \(1\).jpg');background-repeat:no-repeat;background-attachment:fixed;background-size:cover";>
+        <center>
+          <div class="link">
+            <img id="lo" src="logo.jpg">
+              <a href="contactus.html"><h3>Contact us</h3></a>
+          
+          <a href="registrationpage.html"><h3>Sign up</h3></a>
+          <a href="userlogin.html"><h3>Sign in</h3></a>
+          <a href="aboutus.html"><h3>About us</h3></a>
+          <a href="frontpage.html"><h3>Home</h3></a>
+          
+        </div>
+          <div class="container">
+        <h1 style="height:50px;width:250px;padding:10px">Contact us</h1>
+        <form>
+          <b>
+            <div style="padding:10px"><label style="display:inline-block;width:150px;text-align:right"><h3>First name</h3></label>
+                <input style="height:30px;width:250px;border-width:medium;border-radius: 15px;" type="text"
+                onfocusout="validateFirstname()" id="fname" placeholder="First name"></div>
+                <div id="errorfname" style="color: red;" ></div>
+
+                <div style="padding:10px"><label style="display:inline-block;width:150px;text-align:right"><h3>Last name</h3></label>
+                <input style="height:30px;width:250px;border-width:medium;border-radius: 15px;" type="text"
+                onfocusout="validateLastname()" id="lname" placeholder="Last name"></div>
+                <div id="errorlname" style="color: red;" ></div>
+
+                <div style="padding:10px"><label style="display:inline-block;width:150px;text-align:right"><h3>Phone number</h3></label>
+                    <input style="height:30px;width:250px;border-width:medium;border-radius: 15px;" type="text"
+                    id="phoneInput" onfocusout="validatePhone(this)" placeholder="Phone number"></div>
+                    <div id="phoneError" class="error-message"></div>
+
+                    <div style="padding:10px"><label style="display:inline-block;width:150px;text-align:right"><h3>Email address</h3></label>
+                        <input style="height:30px;width:250px;border-width:medium;border-radius: 15px;" type="text"
+                        id="emailInput" onfocusout="validateEmail(this)" placeholder="Email address"></div>
+                        <div id="emailError" class="error-message"></div>
+
+                <div style="padding:10px"><label style="display:inline-block;width:150px;text-align:right"><h3>Queries</h3></label>
+                    <input style="height:50px;width:250px;border-width:medium;border-radius: 15px;" type="text"
+                    id="query" onfocusout="validateQuery()" placeholder="Write something here..."></div>
+                    <div id="errorquery" class="error-message"></div>
+                    
+        
+      
+     <div style="padding:15px"><button style="height:40px;width:200px;border-radius:15px;background-color: bisque;" type="submit">
+      <b><h3>Submit</h3></b></button></div>
+        
+        </center>
+      </b></div>
+        </form>
+        <div class="footer-style">    
+            <p>© 2023 Edustate</p> 
+            <p>Ph:9876543210     email:edustate.net  </p>  
+        </div>  
+    </body>
+</html>
